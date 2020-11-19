@@ -6,17 +6,11 @@ dotenv.config()
 
 axios.defaults.headers.common = { 'Authorization': `bearer ${process.env.CLIENT_TOKEN}` }
 
+async function sendData() {
 
-async function getContent(url) {
-    let content = await axios.get(url)
-    content = await content.data
-    const dom = await hp2.parseDOM(content)
-    const $ = await cheerio.load(dom);
-    let textp = await $('.song_body-lyrics')
-    return RemoveEmptyStrings(textp.text())
 }
 
-function RemoveEmptyStrings(message) {
+function removeEmptyStrings(message) {
     let content = message.split('\n')
 
     let newMessage = []
@@ -28,7 +22,7 @@ function RemoveEmptyStrings(message) {
     return message
 }
 
-async function search(artist) {
+async function searchSongsByArtist(artist) {
     let songs = []
     for (let i = 0; i < 3; i++) {
         let result = await axios.get(`${process.env.API_URL}${artist}&per_page=5&page=${i+1}`)
@@ -47,20 +41,42 @@ async function search(artist) {
     return songs
 }
 
-async function index() {
-    let songs = await search('Noize MC')
+async function searchSongContent(url) {
+    let content = await axios.get(url)
+    content = content.data
+    const dom = hp2.parseDOM(content)
+    const $ = cheerio.load(dom);
+    let textp = $('.song_body-lyrics')
+    return removeEmptyStrings(textp.text())
+}
 
+async function searchSongsAndContent(artist) {
+    let songs = await searchSongsByArtist(artist)
     for (let i = 0; i < songs.length; i++) {
         console.log(`Обрабатываю ${songs[i].song_name}`)
         let result
         do {
-            result = await getContent(songs[i].song_url)
+            result = await searchSongContent(songs[i].song_url)
         } while (result.length < 200)
 
         songs[i].lyrics = result
     }
+    return songs
+}
 
-    console.log(songs)
+async function index() {
+    let result
+    const artists = [
+        'Noize MC',
+        'Morgenshtern',
+        'АК-47'
+    ]
+
+    for (let i = 0; i < artists.length; i++) {
+        result = await searchSongsAndContent()
+        await sendData(result)
+        console.log(result)
+    }
 }
 
 index()
