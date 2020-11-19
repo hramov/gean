@@ -1,0 +1,23 @@
+{
+    "name": "genius",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node --experimental-modules --experimental-json-modules ."
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.21.0",
+        "cheerio": "^1.0.0-rc.3",
+        "dotenv": "^8.2.0",
+        "genius-lyrics-scrape": "^1.2.0",
+        "htmlparser2": "^5.0.1"
+    },
+    "devDependencies": {
+        "needle": "^2.5.2"
+    }
+}
