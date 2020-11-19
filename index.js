@@ -1,10 +1,13 @@
-import axios from 'axios'
-import hp2 from 'htmlparser2'
-import cheerio from 'cheerio'
 import dotenv from 'dotenv'
 dotenv.config()
 
+import axios from 'axios'
 axios.defaults.headers.common = { 'Authorization': `bearer ${process.env.CLIENT_TOKEN}` }
+
+import hp2 from 'htmlparser2'
+import cheerio from 'cheerio'
+
+import config from './config.json'
 
 async function sendData() {
 
@@ -24,8 +27,8 @@ function removeEmptyStrings(message) {
 
 async function searchSongsByArtist(artist) {
     let songs = []
-    for (let i = 0; i < 3; i++) {
-        let result = await axios.get(`${process.env.API_URL}${artist}&per_page=5&page=${i+1}`)
+    for (let i = 0; i < config.pages; i++) {
+        let result = await axios.get(`${process.env.API_URL}${encodeURI(artist)}&per_page=${config.per_page}&page=${i+1}`)
         result = result.data.response.hits
         result.forEach(res => {
             songs.push({
@@ -66,14 +69,10 @@ async function searchSongsAndContent(artist) {
 
 async function index() {
     let result
-    const artists = [
-        'Noize MC',
-        'Morgenshtern',
-        'АК-47'
-    ]
+    const artists = config.artists
 
-    for (let i = 0; i < artists.length; i++) {
-        result = await searchSongsAndContent()
+    for (let i = 0; i < config.artists.length; i++) {
+        result = await searchSongsAndContent(artists[i])
         await sendData(result)
         console.log(result)
     }
