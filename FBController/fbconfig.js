@@ -1,4 +1,4 @@
-export const firebaseConfig = {
+export const fbconfig = {
     apiKey: "AIzaSyDaM_myYxGtSNOyXgZIN9KvUwKPyCfaeks",
     authDomain: "genuis-parser.firebaseapp.com",
     databaseURL: "https://genuis-parser.firebaseio.com",

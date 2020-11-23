@@ -12,6 +12,6 @@ export function checkLogFile() {
 
 export function log(logText) {
     const log = `${new Date(Date.now()).toLocaleDateString()} ${new Date(Date.now()).toLocaleTimeString()} | ${logText}`
-    fs.appendFileSync(LOG_PATH, log)
+    fs.appendFileSync(LOG_PATH, log + '\n')
     console.log(log)
 }

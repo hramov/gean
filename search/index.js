@@ -1,16 +1,20 @@
 import axios from 'axios'
-axios.defaults.headers.common = { 'Authorization': `bearer ${process.env.CLIENT_TOKEN}` }
 import cheerio from 'cheerio'
 import hp2 from 'htmlparser2'
-import { log } from './utils'
+import { log } from './../utils'
 import { removeEmptyStrings } from './../proceed'
+import config from './../config.json'
 
-async function searchSongsByArtist(artist) {
+async function searchSongsByArtist(name_artist) {
+
     let songs = []
     for (let i = 0; i < config.pages; i++) {
-        let result = await axios.get(`${process.env.API_URL}${encodeURI(artist)}&per_page=${config.per_page}&page=${i+1}`)
+        console.log(`${process.env.API_URL}${encodeURI(name_artist)}&per_page=${config.per_page}&page=${i+1}`)
+
+        let result = await axios.get(`${process.env.API_URL}${encodeURI(name_artist)}&per_page=${config.per_page}&page=${i+1}`)
         result = result.data.response.hits
         result.forEach(res => {
+
             songs.push({
                 artist_name: res.result.primary_artist.name,
                 artist_id: res.result.primary_artist.id,
@@ -19,6 +23,7 @@ async function searchSongsByArtist(artist) {
                 song_url: res.result.url,
                 lyrics: ''
             })
+
         })
     }
     return songs
@@ -33,8 +38,8 @@ async function searchSongContent(url) {
     return removeEmptyStrings(textp.text())
 }
 
-export async function searchSongsAndContent(artist) {
-    let songs = await searchSongsByArtist(artist)
+export async function searchSongsAndContent(name_artist) {
+    let songs = await searchSongsByArtist(name_artist)
     for (let i = 0; i < songs.length; i++) {
         log(`Обрабатываю ${songs[i].song_name}`)
         let result
@@ -53,8 +58,9 @@ export async function searchWordForExisting(word) {
     const $ = cheerio.load(dom);
     const result = $('div.block-content > h2')
 
-    result.forEach(res => {
-        if (res === 'Искомое слово отсутствует') return false
-    })
+    console.log(result)
+        // result.forEach(res => {
+        //     if (res === 'Искомое слово отсутствует') return false
+        // })
     return true
 }
