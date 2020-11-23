@@ -1,15 +1,22 @@
 import natural from 'natural'
+import { log } from './../utils'
+
 import { searchWordForExisting } from './../search'
 
 const tokenizer = new natural.WordTokenizer();
 
 async function checkWord(words, word) {
-    word = word.toLowerCase()
-    word = natural.PorterStemmerRu.stem(word)
-    if (await searchWordForExisting(words, word)) {
-        return word
+    try {
+        word = word.toLowerCase()
+        word = natural.PorterStemmerRu.stem(word)
+        if (!await searchWordForExisting(words, word)) {
+            word = ''
+        }
+    } catch (err) {
+        log(err)
+        return ''
     }
-    return ''
+    return word
 }
 
 export async function checkWords(words, song) {

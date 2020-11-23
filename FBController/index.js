@@ -18,7 +18,18 @@ export async function getWords(id_artist) {
 }
 
 export async function addArtist(data) {
-    const result = await axios.post('https://genuis-parser.firebaseio.com/artists.json', data)
+    let result = []
+    let artists = await getArtists()
+    let values = Object.values(artists)
+    values = values.map(values => values.id)
+
+    if (values.includes(data.id)) {
+        log('Нет новых исполнителей')
+        return
+    }
+
+    console.log('Записываю нового исполнителя')
+    result = await axios.post('https://genuis-parser.firebaseio.com/artists.json', data)
     return result.data
 }
 
