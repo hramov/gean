@@ -1,4 +1,5 @@
 import { log } from './utils'
+
 export function removeEmptyStrings(message) {
     let content = message.split('\n')
 

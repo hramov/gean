@@ -16,7 +16,7 @@ function checkWord(word) {
 }
 
 export function checkWords(song) {
-    const word_array = song.split(' ')
-    word_array = word_array.map(word => checkWord(word))
-    return word_array || []
+    song.content = song.content.split(' ')
+    song.content = song.content.map(word => checkWord(word))
+    return song
 }
