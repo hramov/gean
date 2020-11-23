@@ -16,7 +16,6 @@
         "dotenv": "^8.2.0",
         "firebase": "^8.0.2",
         "firebase-admin": "^9.4.1",
-        "genius-lyrics-scrape": "^1.2.0",
         "htmlparser2": "^5.0.1"
     },
     "devDependencies": {

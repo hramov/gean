@@ -2,7 +2,7 @@ import axios from 'axios'
 axios.defaults.headers.common = { 'Authorization': `bearer ${process.env.CLIENT_TOKEN}` }
 import cheerio from 'cheerio'
 import hp2 from 'htmlparser2'
-
+import { log } from './utils'
 import { removeEmptyStrings } from './../proceed'
 
 async function searchSongsByArtist(artist) {
@@ -36,7 +36,7 @@ async function searchSongContent(url) {
 export async function searchSongsAndContent(artist) {
     let songs = await searchSongsByArtist(artist)
     for (let i = 0; i < songs.length; i++) {
-        console.log(`Обрабатываю ${songs[i].song_name}`)
+        log(`Обрабатываю ${songs[i].song_name}`)
         let result
         do {
             result = await searchSongContent(songs[i].song_url)

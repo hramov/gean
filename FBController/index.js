@@ -1,7 +1,7 @@
 import { fbconfig } from './fbconfig'
 import firebase from 'firebase'
 import admin from 'firebase-admin'
-
+import { log } from './utils'
 firebase.initializeApp(fbconfig);
 admin.initializeApp(fbconfig)
 

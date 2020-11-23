@@ -1,0 +1,11 @@
+genius:
+    image: genius_parser
+    container_name: genius_parser
+    restart: always
+    volumes:
+        - "/srv/logs/genius_parser:/usr/src/app/logs"
+    environment:
+        - API_URL=https://api.genius.com/search?q=
+        - CLIENT_ID=l_y10aKohDl0NftZQD9dZEBzSBgQHO72un1__G24J389b7vN8vkiUnapmbknd4eZ
+        - CLIENT_SECRET=z9AsBF0YVOD8DUUapIT_2csVOXnxUOiduFNWSjvgCu0jfUmqPFcXx2QRN8UhBlUIVgLx2Xot5pdKJXCWkmoqWw
+        - CLIENT_TOKEN=Bld1V7VkryEIHfyaufrfM6PmGiAm5hFjjdAVhZm_RBp9lzKV_sfM-KLu1jxwdiXj

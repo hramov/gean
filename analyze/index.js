@@ -1,4 +1,5 @@
 // import natural from 'natural'
+import { log } from './utils'
 
 function removeRedundant(word) {
     // use one of natural functions to remove word's preffix and suffix

@@ -3,6 +3,7 @@ dotenv.config()
 
 import { searchSongsAndContent } from './search'
 import config from './config.json'
+import { checkLogFile, log } from './utils'
 
 async function index() {
 
@@ -12,4 +13,5 @@ async function index() {
     }
 }
 
+checkLogFile()
 index()
