@@ -1,14 +1,27 @@
-import { getSongs } from './../FBController'
-import _ from 'underscore'
+/**
+ * artists.json
+ * [
+ *   random_id: {
+ *          id: number
+ *          name: string
+ *          image: string
+ *          url: string
+ *          unique_words: number
+ *          words: Array<string>
+ *      }
+ * ]
+ * 
+ */
 
-export default async function statistics(id_artist, data) {
+import { getWords } from './../FBController'
 
-    const words = await getSongs(id_artist) // ['','','']
-    words = words.append(data).join(' ').split(' ')
-    words = _.unique(words)
+export default async function statistics(artist, data) {
+    const result = await getWords(artist.id)
+    const words = new Set(result.words)
+    words = words.add(data)
 
-    return {
-        words: words, // ['','',''] Array of all unique words for the particular artist
-        count: words.length // Number of unique words for the particular artist
-    }
+    artist.words = words
+    artist.unique_words = words.length
+
+    return artist
 }

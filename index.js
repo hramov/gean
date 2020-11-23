@@ -3,7 +3,7 @@ dotenv.config()
 
 import { searchSongsAndContent } from './search'
 import { checkWords } from './analyze'
-import { sendData } from './FBController'
+import { updateArtist } from './FBController'
 import statistics from './analyze/statistics'
 
 import { checkLogFile, log } from './utils'
@@ -18,7 +18,7 @@ async function index() {
         let result
         result = await searchSongsAndContent(artists[i])
         result = result.map(song => checkWords(song))
-        await sendData(statistics(artists[i].id, result.join(' ')))
+        log(await updateArtist(await statistics(artists[i], result)))
     }
 
 }

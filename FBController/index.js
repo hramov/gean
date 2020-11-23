@@ -7,20 +7,12 @@ admin.initializeApp(fbconfig)
 
 const db = admin.database();
 
-async function addSong(id_artist, data) {
-
-}
-
-async function patchSong(id_artist, id_song, data) {
-
-}
-
-async function getSong(id_artist, id_song) {
-
-}
-
-async function getSongs(id_artist) {
-
+export async function getWords(id_artist) {
+    const result = await getArtist(id_artist)
+    return {
+        unique_words: result.unique_words,
+        words: result.words
+    }
 }
 
 async function addArtist(data) {
@@ -38,6 +30,7 @@ async function getArtists() {
     return result.data
 }
 
-export async function sendData(data) {
-
+export async function updateArtist(artist) {
+    const result = await axios.patch('https://genuis-parser.firebaseio.com/artists.json', artist)
+    return result.data
 }
