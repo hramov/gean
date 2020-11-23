@@ -46,3 +46,15 @@ export async function searchSongsAndContent(artist) {
     }
     return songs
 }
+
+export async function searchWordForExisting(word) {
+    const content = await axios.get(`http://gramota.ru/slovari/dic/?word=${encodeURI(word)}&all=x`)
+    const dom = hp2.parseDOM(content)
+    const $ = cheerio.load(dom);
+    const result = $('div.block-content > h2')
+
+    result.forEach(res => {
+        if (res === 'Искомое слово отсутствует') return false
+    })
+    return true
+}

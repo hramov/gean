@@ -17,8 +17,9 @@ async function index() {
 
         let result
         result = await searchSongsAndContent(artists[i])
-        result = result.map(song => checkWords(song))
-        log(await updateArtist(await statistics(artists[i], result)))
+        result = result.map(async song => await checkWords(song))
+
+        // log(await updateArtist(await statistics(artists[i], result)))
     }
 
 }
