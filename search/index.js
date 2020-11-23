@@ -39,25 +39,25 @@ async function searchSongContent(url) {
 }
 
 export async function searchSongsAndContent(name_artist) {
-    let songs = await searchSongsByArtist(name_artist)
-    for (let i = 0; i < songs.length; i++) {
-        log(`Обрабатываю ${songs[i].song_name}`)
-        let result
-        do {
-            result = await searchSongContent(songs[i].song_url)
-        } while (result.length < 200)
+    try {
+        let songs = await searchSongsByArtist(name_artist)
+        for (let i = 0; i < songs.length; i++) {
+            log(`Обрабатываю ${songs[i].song_name}`)
+            let result
+            do {
+                result = await searchSongContent(songs[i].song_url)
+            } while (result.length < 200)
 
-        songs[i].lyrics = result
+            songs[i].lyrics = result
+        }
+    } catch (err) {
+        console.log(err)
+        return
     }
     return songs
 }
 
-export async function searchWordForExisting(word) {
-    const content = await axios.get(`http://gramota.ru/slovari/dic/?word=${encodeURI(word)}&all=x`)
-    const dom = hp2.parseDOM(content)
-    const $ = cheerio.load(dom);
-    const result = $('div.block-content > h2').text()
-    console.log(result)
-    if (result === 'Искомое слово отсутствует') return false
-    return true
+export async function searchWordForExisting(words, word) {
+    if (words.includes(word)) return true
+    return false
 }

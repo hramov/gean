@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { fbconfig } from './fbconfig'
 import firebase from 'firebase'
 import admin from 'firebase-admin'
@@ -16,7 +17,7 @@ export async function getWords(id_artist) {
     }
 }
 
-async function addArtist(data) {
+export async function addArtist(data) {
     const result = await axios.post('https://genuis-parser.firebaseio.com/artists.json', data)
     return result.data
 }
@@ -32,6 +33,16 @@ async function getArtists() {
 }
 
 export async function updateArtist(artist) {
-    const result = await axios.patch('https://genuis-parser.firebaseio.com/artists.json', artist)
+    console.log('Отправляю данные')
+    let artists = await getArtists(artist.id)
+    let keys = Object.keys(artists)
+    let values = Object.values(artists)
+    let key = ''
+
+    for (let i = 0; i < values.length; i++) {
+        if (values[i].id === artist.id) key = keys[i]
+    }
+    console.log(`https://genuis-parser.firebaseio.com/artists/${key}`)
+    const result = await axios.patch(`https://genuis-parser.firebaseio.com/artists/${key}.json`, artist)
     return result.data
 }

@@ -2,27 +2,29 @@ import natural from 'natural'
 import { searchWordForExisting } from './../search'
 
 const tokenizer = new natural.WordTokenizer();
-const stemmer = natural.PorterStemmerRu
 
-async function checkWord(word) {
+async function checkWord(words, word) {
     word = word.toLowerCase()
-    if (await searchWordForExisting(word.toLowerCase())) {
-        console.log(word)
-        word = stemmer.stem(word)
+    word = natural.PorterStemmerRu.stem(word)
+    if (await searchWordForExisting(words, word)) {
         return word
     }
     return ''
 }
 
-export async function checkWords(song) {
+export async function checkWords(words, song) {
     let words_array = []
 
-    song.lyrics = tokenizer.tokenize(song.lyrics)
+    try {
+        song.lyrics = tokenizer.tokenize(song.lyrics)
+    } catch (err) {
+        console.log(err)
+    }
+
     song.lyrics = new Set(song.lyrics)
     song.lyrics = Array.from(song.lyrics)
-
     for (let i = 0; i < song.lyrics.length; i++) {
-        words_array.push(await checkWord(song.lyrics[i]))
+        words_array.push(await checkWord(words, song.lyrics[i]))
     }
 
     words_array = words_array.filter(word => word !== '')

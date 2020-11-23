@@ -14,14 +14,25 @@
  */
 
 import { getWords } from './../FBController'
+import _ from 'underscore'
 
 export default async function statistics(artist, data) {
-    const result = await getWords(artist.id)
-    const words = new Set(result.words)
-    words = words.add(data)
+    console.log('Собираю статистику')
 
-    artist.words = words
-    artist.unique_words = words.length
+    let result = await getWords(artist.id)
+
+    if (result.words) {
+        result.words.push(_.flatten(data))
+        result.words = Array.from(new Set(_.flatten(result.words)))
+        artist.words = result.words
+        artist.unique_words = result.words.length
+    } else {
+        result.words = _.flatten(data)
+        result.words = Array.from(new Set(_.flatten(result.words)))
+
+        artist.words = result.words
+        artist.unique_words = result.words.length
+    }
 
     return artist
 }
