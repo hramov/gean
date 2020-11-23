@@ -25,20 +25,20 @@ async function index() {
 
         /*****************Checked!************************* */
 
-        // let result
-        // result = await searchSongsAndContent(artists[i].name)
+        let result
+        result = await searchSongsAndContent(artists[i].name)
 
-        // /************************************************** */
+        /************************************************** */
 
-        // let proceeded_result = []
+        let proceeded_result = []
 
-        // for (let j = 0; j < result.length; j++) {
-        //     proceeded_result.push(await checkWords(words, result[j]))
-        // }
+        for (let j = 0; j < result.length; j++) {
+            proceeded_result.push(await checkWords(words, result[j]))
+        }
 
-        // for (let k = 0; k < proceeded_result.length; k++) {
-        //     await updateArtist(await statistics(artists[i], proceeded_result[k].lyrics))
-        // }
+        for (let k = 0; k < proceeded_result.length; k++) {
+            await updateArtist(await statistics(artists[i], proceeded_result[k].lyrics))
+        }
 
     }
 

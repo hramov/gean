@@ -19,8 +19,7 @@
         "firebase-admin": "^9.4.1",
         "htmlparser2": "^5.0.1",
         "natural": "^2.1.5",
-        "underscore": "^1.11.0",
-        "yaspeller": "^7.0.0"
+        "underscore": "^1.11.0"
     },
     "devDependencies": {
         "needle": "^2.5.2"

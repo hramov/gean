@@ -39,8 +39,9 @@ async function searchSongContent(url) {
 }
 
 export async function searchSongsAndContent(name_artist) {
+    let songs = []
     try {
-        let songs = await searchSongsByArtist(name_artist)
+        songs = await searchSongsByArtist(name_artist)
         for (let i = 0; i < songs.length; i++) {
             log(`Обрабатываю ${songs[i].song_name}`)
             let result
