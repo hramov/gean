@@ -1,9 +1,15 @@
 {
     "pages": 1,
     "per_page": 5,
-    "artists": [
-        "Noize MC",
-        "Morgenshtern",
-        "АК-47"
+    "artists": [{
+            "id": 1,
+            "name": "Noize MC",
+            "image_url": ""
+        },
+        {
+            "id": 2,
+            "name": "Morgenshtern",
+            "image_url": ""
+        }
     ]
 }

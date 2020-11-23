@@ -6,7 +6,7 @@
     "type": "module",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node --experimental-modules --experimental-json-modules ."
+        "start": "node --experimental-modules --experimental-json-modules --es-module-specifier-resolution=node ."
     },
     "author": "",
     "license": "ISC",
@@ -14,6 +14,8 @@
         "axios": "^0.21.0",
         "cheerio": "^1.0.0-rc.3",
         "dotenv": "^8.2.0",
+        "firebase": "^8.0.2",
+        "firebase-admin": "^9.4.1",
         "genius-lyrics-scrape": "^1.2.0",
         "htmlparser2": "^5.0.1"
     },
