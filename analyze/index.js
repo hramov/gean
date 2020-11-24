@@ -31,7 +31,7 @@ async function checkWord(word) {
     }
 
     return {
-        term: word,
+        word: word,
         sentimental: sent
     }
 }

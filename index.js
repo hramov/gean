@@ -43,9 +43,9 @@ async function index() {
 
         console.log(proceeded_result[0].lyrics)
 
-        // for (let k = 0; k < proceeded_result.length; k++) {
-        //     await updateArtist(await statistics(artists[i], proceeded_result[k].lyrics))
-        // }
+        for (let k = 0; k < proceeded_result.length; k++) {
+            await updateArtist(await statistics(artists[i], proceeded_result[k].lyrics))
+        }
 
     }
     process.exit(0)
