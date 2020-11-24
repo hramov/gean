@@ -16,7 +16,7 @@ export function checkLogFile() {
 export function log(logText) {
     const log = `${new Date(Date.now()).toLocaleDateString()} ${new Date(Date.now()).toLocaleTimeString()} | ${logText}`
     fs.appendFileSync(LOG_PATH, log + '\n')
-    log(log)
+    console.log(log)
 }
 
 export async function readCSV() {
