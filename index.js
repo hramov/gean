@@ -28,20 +28,13 @@ async function index() {
 
         await addArtist(artists[i])
 
-        /*****************Checked!************************* */
-
-        let result
-        result = await searchSongsAndContent(artists[i].name)
-
-        /************************************************** */
+        let result = await searchSongsAndContent(artists[i].name)
 
         let proceeded_result = []
 
         for (let j = 0; j < result.length; j++) {
             proceeded_result.push(await checkWords(result[j]))
         }
-
-        console.log(proceeded_result[0].lyrics)
 
         for (let k = 0; k < proceeded_result.length; k++) {
             await updateArtist(await statistics(artists[i], proceeded_result[k].lyrics))

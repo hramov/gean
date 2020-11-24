@@ -44,7 +44,7 @@ async function getArtists() {
 }
 
 export async function updateArtist(artist) {
-    console.log('Отправляю данные')
+    log('Отправляю данные')
     let artists = await getArtists(artist.id)
     let keys = Object.keys(artists)
     let values = Object.values(artists)
@@ -53,7 +53,7 @@ export async function updateArtist(artist) {
     for (let i = 0; i < values.length; i++) {
         if (values[i].id === artist.id) key = keys[i]
     }
-    console.log(`https://genuis-parser.firebaseio.com/artists/${key}`)
+    log(`https://genuis-parser.firebaseio.com/artists/${key}`)
     const result = await axios.patch(`https://genuis-parser.firebaseio.com/artists/${key}.json`, artist)
     return result.data
 }

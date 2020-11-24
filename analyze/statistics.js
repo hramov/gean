@@ -45,7 +45,7 @@ function removeDuplicates(arr) {
 export default async function statistics(artist, data) {
     log('Собираю статистику')
     let result = await getWords(artist.id)
-    if (result.words.length > 0) {
+    if (result.words) {
         result.words.push(_.flatten(data))
         result.words = _.flatten(result.words)
         result.words = removeDuplicates(result.words)

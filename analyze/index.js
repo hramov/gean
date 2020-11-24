@@ -51,7 +51,7 @@ export async function checkWords(song) {
         words_array.push(await checkWord(song.lyrics[i]))
     }
 
-    words_array = words_array.filter(word => word.term !== '')
+    words_array = words_array.filter(word => word.word !== '')
     song.lyrics = words_array
 
     return song

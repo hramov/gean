@@ -16,12 +16,12 @@ export function checkLogFile() {
 export function log(logText) {
     const log = `${new Date(Date.now()).toLocaleDateString()} ${new Date(Date.now()).toLocaleTimeString()} | ${logText}`
     fs.appendFileSync(LOG_PATH, log + '\n')
-    console.log(log)
+    log(log)
 }
 
 export async function readCSV() {
     let results = []
-    console.log('Начинаю читать csv')
+    log('Начинаю читать csv')
     fs.createReadStream(`${appRoot}/data/emo_dict.csv`)
         .pipe(csv({ separator: ';' }))
         .on('data', (data) => results.push(data))
