@@ -29,7 +29,7 @@ export async function addArtist(data) {
             return
         }
     }
-    console.log('Записываю нового исполнителя')
+    log('Записываю нового исполнителя')
     result = await axios.post('https://genuis-parser.firebaseio.com/artists.json', data)
 }
 

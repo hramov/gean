@@ -42,7 +42,7 @@ export async function checkWords(song) {
     try {
         song.lyrics = tokenizer.tokenize(song.lyrics)
     } catch (err) {
-        console.log(err)
+        log(err)
     }
 
     song.lyrics = new Set(song.lyrics)

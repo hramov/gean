@@ -10,7 +10,7 @@ async function searchSongsByArtist(name_artist) {
 
     let songs = []
     for (let i = 0; i < config.pages; i++) {
-        console.log(`${process.env.API_URL}${encodeURI(name_artist)}&per_page=${config.per_page}&page=${i+1}`)
+        log(`${process.env.API_URL}${encodeURI(name_artist)}&per_page=${config.per_page}&page=${i+1}`)
 
         let result = await axios.get(`${process.env.API_URL}${encodeURI(name_artist)}&per_page=${config.per_page}&page=${i+1}`)
         result = result.data.response.hits
@@ -53,7 +53,7 @@ export async function searchSongsAndContent(name_artist) {
             songs[i].lyrics = result
         }
     } catch (err) {
-        console.log(err)
+        log(err)
         return
     }
     return songs
