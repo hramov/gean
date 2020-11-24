@@ -245,3 +245,141 @@
 11/24/2020 12:30:22 PM | https://api.genius.com/search?q=Oxxxymiron&per_page=2&page=1
 11/24/2020 12:30:23 PM | Песня Город под подошвой (City Under the Sole) уже есть в базе
 11/24/2020 12:30:23 PM | Песня 12/04/15: Oxxxymiron vs. Johnyboy уже есть в базе
+11/24/2020 12:46:16 PM | Начинаю читать csv
+11/24/2020 12:46:17 PM | Нет новых исполнителей
+11/24/2020 12:46:17 PM | https://api.genius.com/search?q=Noize%20MC&per_page=2&page=1
+11/24/2020 12:46:18 PM | Песня Чайлдфри (Childfree) уже есть в базе
+11/24/2020 12:46:18 PM | Песня Всё как у людей (Everything is like people’s) уже есть в базе
+11/24/2020 12:46:19 PM | Нет новых исполнителей
+11/24/2020 12:46:20 PM | https://api.genius.com/search?q=Morgenshtern&per_page=2&page=1
+11/24/2020 12:46:20 PM | Песня Cadillac уже есть в базе
+11/24/2020 12:46:20 PM | Песня ICE уже есть в базе
+11/24/2020 12:46:21 PM | Нет новых исполнителей
+11/24/2020 12:46:22 PM | https://api.genius.com/search?q=Oxxxymiron&per_page=2&page=1
+11/24/2020 12:46:22 PM | Песня Город под подошвой (City Under the Sole) уже есть в базе
+11/24/2020 12:46:22 PM | Песня 12/04/15: Oxxxymiron vs. Johnyboy уже есть в базе
+11/24/2020 12:48:01 PM | Начинаю читать csv
+11/24/2020 12:48:02 PM | Нет новых исполнителей
+11/24/2020 12:48:02 PM | https://api.genius.com/search?q=Noize%20MC&per_page=2&page=1
+11/24/2020 12:48:03 PM | Песня Чайлдфри (Childfree) уже есть в базе
+11/24/2020 12:48:03 PM | Песня Всё как у людей (Everything is like people’s) уже есть в базе
+11/24/2020 12:48:04 PM | Нет новых исполнителей
+11/24/2020 12:48:04 PM | https://api.genius.com/search?q=Morgenshtern&per_page=2&page=1
+11/24/2020 12:48:05 PM | Песня Cadillac уже есть в базе
+11/24/2020 12:48:05 PM | Песня ICE уже есть в базе
+11/24/2020 12:48:06 PM | Нет новых исполнителей
+11/24/2020 12:48:06 PM | https://api.genius.com/search?q=Oxxxymiron&per_page=2&page=1
+11/24/2020 12:48:07 PM | Песня Город под подошвой (City Under the Sole) уже есть в базе
+11/24/2020 12:48:07 PM | Песня 12/04/15: Oxxxymiron vs. Johnyboy уже есть в базе
+11/24/2020 12:49:03 PM | Начинаю читать csv
+11/24/2020 12:49:04 PM | Нет новых исполнителей
+11/24/2020 12:49:04 PM | https://api.genius.com/search?q=Noize%20MC&per_page=2&page=1
+11/24/2020 12:49:05 PM | Песня Чайлдфри (Childfree) уже есть в базе
+11/24/2020 12:49:05 PM | Песня Всё как у людей (Everything is like people’s) уже есть в базе
+11/24/2020 12:49:06 PM | Нет новых исполнителей
+11/24/2020 12:49:06 PM | https://api.genius.com/search?q=Morgenshtern&per_page=2&page=1
+11/24/2020 12:49:07 PM | Песня Cadillac уже есть в базе
+11/24/2020 12:49:07 PM | Песня ICE уже есть в базе
+11/24/2020 12:49:07 PM | Нет новых исполнителей
+11/24/2020 12:49:08 PM | https://api.genius.com/search?q=Oxxxymiron&per_page=2&page=1
+11/24/2020 12:49:09 PM | Песня Город под подошвой (City Under the Sole) уже есть в базе
+11/24/2020 12:49:09 PM | Песня 12/04/15: Oxxxymiron vs. Johnyboy уже есть в базе
+11/24/2020 12:49:40 PM | Начинаю читать csv
+11/24/2020 12:49:41 PM | Записываю нового исполнителя
+11/24/2020 12:49:41 PM | https://api.genius.com/search?q=Noize%20MC&per_page=2&page=1
+11/24/2020 12:49:42 PM | Обрабатываю Чайлдфри (Childfree)
+11/24/2020 12:49:44 PM | Обрабатываю Всё как у людей (Everything is like people’s)
+11/24/2020 12:49:46 PM | Собираю статистику
+11/24/2020 12:49:47 PM | Собираю статистику
+11/24/2020 12:49:48 PM | Отправляю данные
+11/24/2020 12:49:48 PM | Записываю нового исполнителя
+11/24/2020 12:49:48 PM | Отправляю данные
+11/24/2020 12:49:48 PM | https://genuis-parser.firebaseio.com/artists/-MMte9_ql9_rnBBzQBdJ
+11/24/2020 12:49:48 PM | https://api.genius.com/search?q=Morgenshtern&per_page=2&page=1
+11/24/2020 12:49:48 PM | https://genuis-parser.firebaseio.com/artists/-MMte9_ql9_rnBBzQBdJ
+11/24/2020 12:49:49 PM | Обрабатываю Cadillac
+11/24/2020 12:49:51 PM | Обрабатываю ICE
+11/24/2020 12:49:52 PM | Собираю статистику
+11/24/2020 12:49:52 PM | Собираю статистику
+11/24/2020 12:49:53 PM | Отправляю данные
+11/24/2020 12:49:53 PM | Записываю нового исполнителя
+11/24/2020 12:49:53 PM | Отправляю данные
+11/24/2020 12:49:53 PM | https://genuis-parser.firebaseio.com/artists/-MMteBDZHShBxROVvA_U
+11/24/2020 12:49:53 PM | https://api.genius.com/search?q=Oxxxymiron&per_page=2&page=1
+11/24/2020 12:49:53 PM | https://genuis-parser.firebaseio.com/artists/-MMteBDZHShBxROVvA_U
+11/24/2020 12:49:54 PM | Обрабатываю Город под подошвой (City Under the Sole)
+11/24/2020 12:49:56 PM | Обрабатываю 12/04/15: Oxxxymiron vs. Johnyboy
+11/24/2020 12:50:36 PM | Начинаю читать csv
+11/24/2020 12:50:37 PM | Нет новых исполнителей
+11/24/2020 12:50:37 PM | https://api.genius.com/search?q=Noize%20MC&per_page=2&page=1
+11/24/2020 12:50:38 PM | Песня Чайлдфри (Childfree) уже есть в базе
+11/24/2020 12:50:38 PM | Песня Всё как у людей (Everything is like people’s) уже есть в базе
+11/24/2020 12:50:39 PM | Нет новых исполнителей
+11/24/2020 12:50:39 PM | https://api.genius.com/search?q=Morgenshtern&per_page=2&page=1
+11/24/2020 12:50:40 PM | Песня Cadillac уже есть в базе
+11/24/2020 12:50:40 PM | Песня ICE уже есть в базе
+11/24/2020 12:50:40 PM | Нет новых исполнителей
+11/24/2020 12:50:41 PM | https://api.genius.com/search?q=Oxxxymiron&per_page=2&page=1
+11/24/2020 12:50:41 PM | TypeError: Cannot read property 'includes' of undefined
+11/24/2020 12:50:56 PM | Начинаю читать csv
+11/24/2020 12:50:57 PM | Записываю нового исполнителя
+11/24/2020 12:50:57 PM | https://api.genius.com/search?q=Noize%20MC&per_page=2&page=1
+11/24/2020 12:50:58 PM | Обрабатываю Чайлдфри (Childfree)
+11/24/2020 12:50:59 PM | Обрабатываю Всё как у людей (Everything is like people’s)
+11/24/2020 12:50:59 PM | Собираю статистику
+11/24/2020 12:51:00 PM | Отправляю данные
+11/24/2020 12:51:00 PM | https://genuis-parser.firebaseio.com/artists/-MMteS5Nr7NGwtB7AWQw
+11/24/2020 12:51:00 PM | Собираю статистику
+11/24/2020 12:51:01 PM | Отправляю данные
+11/24/2020 12:51:01 PM | https://genuis-parser.firebaseio.com/artists/-MMteS5Nr7NGwtB7AWQw
+11/24/2020 12:51:02 PM | Записываю нового исполнителя
+11/24/2020 12:51:03 PM | https://api.genius.com/search?q=Morgenshtern&per_page=2&page=1
+11/24/2020 12:51:03 PM | Обрабатываю Cadillac
+11/24/2020 12:51:05 PM | Обрабатываю ICE
+11/24/2020 12:51:05 PM | Собираю статистику
+11/24/2020 12:51:06 PM | Отправляю данные
+11/24/2020 12:51:06 PM | https://genuis-parser.firebaseio.com/artists/-MMteTSinMu4xRDARK1y
+11/24/2020 12:51:06 PM | Собираю статистику
+11/24/2020 12:51:07 PM | Отправляю данные
+11/24/2020 12:51:07 PM | https://genuis-parser.firebaseio.com/artists/-MMteTSinMu4xRDARK1y
+11/24/2020 12:51:08 PM | Записываю нового исполнителя
+11/24/2020 12:51:08 PM | https://api.genius.com/search?q=Oxxxymiron&per_page=2&page=1
+11/24/2020 12:51:09 PM | Обрабатываю Город под подошвой (City Under the Sole)
+11/24/2020 12:51:10 PM | Обрабатываю 12/04/15: Oxxxymiron vs. Johnyboy
+11/24/2020 12:51:11 PM | Собираю статистику
+11/24/2020 12:51:12 PM | Отправляю данные
+11/24/2020 12:51:12 PM | https://genuis-parser.firebaseio.com/artists/-MMteUqUp5f01WUpwoed
+11/24/2020 12:51:12 PM | Собираю статистику
+11/24/2020 12:51:14 PM | Отправляю данные
+11/24/2020 12:51:14 PM | https://genuis-parser.firebaseio.com/artists/-MMteUqUp5f01WUpwoed
+11/24/2020 12:51:39 PM | Начинаю читать csv
+11/24/2020 12:51:40 PM | Записываю нового исполнителя
+11/24/2020 12:51:40 PM | https://api.genius.com/search?q=Noize%20MC&per_page=2&page=1
+11/24/2020 12:51:41 PM | Обрабатываю Чайлдфри (Childfree)
+11/24/2020 12:51:41 PM | Обрабатываю Всё как у людей (Everything is like people’s)
+11/24/2020 12:51:42 PM | Собираю статистику
+11/24/2020 12:51:42 PM | Отправляю данные
+11/24/2020 12:51:43 PM | https://genuis-parser.firebaseio.com/artists/-MMtebeNLHFU7SFzIvgF
+11/24/2020 12:51:43 PM | Собираю статистику
+11/24/2020 12:51:44 PM | Отправляю данные
+11/24/2020 12:51:44 PM | https://genuis-parser.firebaseio.com/artists/-MMtebeNLHFU7SFzIvgF
+11/24/2020 12:51:45 PM | Записываю нового исполнителя
+11/24/2020 12:51:46 PM | https://api.genius.com/search?q=Morgenshtern&per_page=2&page=1
+11/24/2020 12:51:46 PM | Обрабатываю Cadillac
+11/24/2020 12:51:47 PM | Обрабатываю ICE
+11/24/2020 12:51:49 PM | Собираю статистику
+11/24/2020 12:51:49 PM | Отправляю данные
+11/24/2020 12:51:50 PM | https://genuis-parser.firebaseio.com/artists/-MMtecx5ItRR8djbx0CF
+11/24/2020 12:51:51 PM | Собираю статистику
+11/24/2020 12:51:52 PM | Отправляю данные
+11/24/2020 12:51:52 PM | https://genuis-parser.firebaseio.com/artists/-MMtecx5ItRR8djbx0CF
+11/24/2020 12:51:53 PM | Записываю нового исполнителя
+11/24/2020 12:51:53 PM | https://api.genius.com/search?q=Oxxxymiron&per_page=2&page=1
+11/24/2020 12:51:54 PM | Обрабатываю Город под подошвой (City Under the Sole)
+11/24/2020 12:51:55 PM | Обрабатываю 12/04/15: Oxxxymiron vs. Johnyboy
+11/24/2020 12:51:56 PM | Собираю статистику
+11/24/2020 12:51:57 PM | Отправляю данные
+11/24/2020 12:51:57 PM | https://genuis-parser.firebaseio.com/artists/-MMteesB6PSYfUd7PGqO
+11/24/2020 12:51:58 PM | Собираю статистику
+11/24/2020 12:51:59 PM | Отправляю данные
+11/24/2020 12:52:00 PM | https://genuis-parser.firebaseio.com/artists/-MMteesB6PSYfUd7PGqO
