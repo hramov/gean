@@ -42,7 +42,7 @@ function removeDuplicates(arr) {
  * @param {Array<Object>} data - массив объектов слов
  * @returns Обновленный объект исполнителя
  */
-export default async function statistics(artist, data) {
+export default async function statistics(artist, data, songs_id) {
     log('Собираю статистику')
     let result = await getWords(artist.id)
     if (result.words) {
@@ -51,11 +51,14 @@ export default async function statistics(artist, data) {
         result.words = removeDuplicates(result.words)
         artist.words = result.words
         artist.unique_words = result.words.length
+        artist.songs.push(songs_id)
+        artist.songs = _.flatten(artist.songs)
     } else {
         result.words = _.flatten(data)
         result.words = Array.from(new Set(_.flatten(result.words)))
         artist.words = result.words
         artist.unique_words = result.words.length
+        artist.songs = _.flatten(songs_id)
     }
     return artist
 }

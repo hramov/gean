@@ -26,14 +26,15 @@ export async function addArtist(data) {
 
         if (values.includes(data.id)) {
             log('Нет новых исполнителей')
-            return
+            return false
         }
     }
     log('Записываю нового исполнителя')
     result = await axios.post('https://genuis-parser.firebaseio.com/artists.json', data)
+    return true
 }
 
-async function getArtist(id) {
+export async function getArtist(id) {
     const result = await getArtists()
     return Object.values(result).filter(artist => artist.id === id)[0] || { error: true, message: 'Нет исполнителя с таким ID' }
 }

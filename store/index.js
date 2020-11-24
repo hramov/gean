@@ -5,6 +5,7 @@ class State {
 
         this.dict = []
         this.words = []
+        this.artist = {}
 
         State.exists = true
         State.instance = this
@@ -16,12 +17,18 @@ class State {
     setDict(dict) {
         this.dict = dict
     }
+    setArtist(data) {
+        this.artist = data
+    }
 
     getWords() {
         return this.words
     }
     getDict() {
         return this.dict
+    }
+    getArtist() {
+        return this.artist
     }
 }
 

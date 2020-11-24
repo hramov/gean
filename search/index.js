@@ -6,15 +6,20 @@ import { removeEmptyStrings } from './../proceed'
 import config from './../config.json'
 import store from './../store'
 
-async function searchSongsByArtist(name_artist) {
+async function searchSongsByArtist(artist) {
 
     let songs = []
     for (let i = 0; i < config.pages; i++) {
-        log(`${process.env.API_URL}${encodeURI(name_artist)}&per_page=${config.per_page}&page=${i+1}`)
+        log(`${process.env.API_URL}${encodeURI(artist.name)}&per_page=${config.per_page}&page=${i+1}`)
 
-        let result = await axios.get(`${process.env.API_URL}${encodeURI(name_artist)}&per_page=${config.per_page}&page=${i+1}`)
+        let result = await axios.get(`${process.env.API_URL}${encodeURI(artist.name)}&per_page=${config.per_page}&page=${i+1}`)
         result = result.data.response.hits
         result.forEach(res => {
+
+            if (artist.songs.includes(res.result.id)) {
+                log(`Песня ${res.result.title} уже есть в базе`)
+                return
+            }
 
             songs.push({
                 artist_name: res.result.primary_artist.name,
@@ -39,10 +44,10 @@ async function searchSongContent(url) {
     return removeEmptyStrings(textp.text())
 }
 
-export async function searchSongsAndContent(name_artist) {
+export async function searchSongsAndContent(artist) {
     let songs = []
     try {
-        songs = await searchSongsByArtist(name_artist)
+        songs = await searchSongsByArtist(artist)
         for (let i = 0; i < songs.length; i++) {
             log(`Обрабатываю ${songs[i].song_name}`)
             let result
