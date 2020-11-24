@@ -1,25 +1,42 @@
 import natural from 'natural'
 import { log } from './../utils'
+import store from './../store'
 
 import { searchWordForExisting } from './../search'
 
 const tokenizer = new natural.WordTokenizer();
 
-async function checkWord(words, word) {
-    try {
-        word = word.toLowerCase()
-        word = natural.PorterStemmerRu.stem(word)
-        if (!await searchWordForExisting(words, word)) {
-            word = ''
+async function sentimental(word) {
+    const dict = store.getDict()
+    let sentimental = 0
+    dict.forEach(dictWord => {
+        if (dictWord.term === word) {
+            sentimental = dictWord.value
+            return
         }
-    } catch (err) {
-        log(err)
-        return ''
-    }
-    return word
+    })
+    return Number(sentimental)
 }
 
-export async function checkWords(words, song) {
+async function checkWord(word) {
+    let sent = 0
+    try {
+        word = word.toLowerCase()
+        if (!await searchWordForExisting(natural.PorterStemmerRu.stem(word))) {
+            word = ''
+        }
+        sent = await sentimental(natural.PorterStemmerRu.stem(word))
+    } catch (err) {
+        log(err)
+    }
+
+    return {
+        term: word,
+        sentimental: sent
+    }
+}
+
+export async function checkWords(song) {
     let words_array = []
 
     try {
@@ -31,10 +48,11 @@ export async function checkWords(words, song) {
     song.lyrics = new Set(song.lyrics)
     song.lyrics = Array.from(song.lyrics)
     for (let i = 0; i < song.lyrics.length; i++) {
-        words_array.push(await checkWord(words, song.lyrics[i]))
+        words_array.push(await checkWord(song.lyrics[i]))
     }
 
-    words_array = words_array.filter(word => word !== '')
+    words_array = words_array.filter(word => word.term !== '')
     song.lyrics = words_array
+
     return song
 }

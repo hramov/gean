@@ -10,17 +10,19 @@ import statistics from './analyze/statistics'
 import fs from 'fs'
 import appRoot from 'app-root-path'
 
-import { checkLogFile } from './utils'
+import { checkLogFile, readCSV } from './utils'
 import config from './config.json'
-
+import store from './store'
 const artists = config.artists
 
-export default async function index() {
+async function index() {
 
     checkLogFile()
+    await readCSV()
 
     let words = fs.readFileSync(`${appRoot}/data/words_stem.txt`, 'utf-8')
     words = words.split('\n')
+    store.setWords(words)
 
     for (let i = 0; i < artists.length; i++) {
 
@@ -36,13 +38,17 @@ export default async function index() {
         let proceeded_result = []
 
         for (let j = 0; j < result.length; j++) {
-            proceeded_result.push(await checkWords(words, result[j]))
+            proceeded_result.push(await checkWords(result[j]))
         }
 
-        for (let k = 0; k < proceeded_result.length; k++) {
-            await updateArtist(await statistics(artists[i], proceeded_result[k].lyrics))
-        }
+        console.log(proceeded_result[0].lyrics)
+
+        // for (let k = 0; k < proceeded_result.length; k++) {
+        //     await updateArtist(await statistics(artists[i], proceeded_result[k].lyrics))
+        // }
 
     }
     process.exit(0)
 }
+
+index()

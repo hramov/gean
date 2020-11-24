@@ -4,6 +4,7 @@ import hp2 from 'htmlparser2'
 import { log } from './../utils'
 import { removeEmptyStrings } from './../proceed'
 import config from './../config.json'
+import store from './../store'
 
 async function searchSongsByArtist(name_artist) {
 
@@ -58,7 +59,8 @@ export async function searchSongsAndContent(name_artist) {
     return songs
 }
 
-export async function searchWordForExisting(words, word) {
+export async function searchWordForExisting(word) {
+    const words = store.getWords()
     if (words.includes(word)) return true
     return false
 }

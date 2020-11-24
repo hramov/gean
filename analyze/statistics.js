@@ -24,15 +24,20 @@ export default async function statistics(artist, data) {
 
     if (result.words) {
         result.words.push(_.flatten(data))
+
         result.words = Array.from(new Set(_.flatten(result.words)))
+
         artist.words = result.words
         artist.unique_words = result.words.length
+
     } else {
+
         result.words = _.flatten(data)
         result.words = Array.from(new Set(_.flatten(result.words)))
 
         artist.words = result.words
         artist.unique_words = result.words.length
+
     }
 
     return artist
