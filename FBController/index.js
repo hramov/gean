@@ -9,14 +9,6 @@ admin.initializeApp(fbconfig)
 
 const db = admin.database();
 
-export async function getWords(id_artist) {
-    const result = await getArtist(id_artist)
-    return {
-        unique_words: result.unique_words,
-        words: result.words
-    }
-}
-
 export async function addArtist(data) {
     let result = []
     let artists = await getArtists()
@@ -34,14 +26,14 @@ export async function addArtist(data) {
     return true
 }
 
-export async function getArtist(id) {
-    const result = await getArtists()
-    return Object.values(result).filter(artist => artist.id === id)[0] || { error: true, message: 'Нет исполнителя с таким ID' }
-}
-
 async function getArtists() {
     const result = await axios.get('https://genuis-parser.firebaseio.com/artists.json') || { error: true, message: 'В базе нет исполнителей' }
     return result.data
+}
+
+export async function getArtist(id) {
+    const result = await getArtists()
+    return Object.values(result).filter(artist => artist.id === id)[0] || { error: true, message: 'Нет исполнителя с таким ID' }
 }
 
 export async function updateArtist(artist) {
@@ -57,4 +49,12 @@ export async function updateArtist(artist) {
     log(`https://genuis-parser.firebaseio.com/artists/${key}`)
     const result = await axios.patch(`https://genuis-parser.firebaseio.com/artists/${key}.json`, artist)
     return result.data
+}
+
+export async function getWords(id_artist) {
+    const result = await getArtist(id_artist)
+    return {
+        unique_words: result.unique_words,
+        words: result.words
+    }
 }
