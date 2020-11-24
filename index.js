@@ -10,12 +10,15 @@ import statistics from './analyze/statistics'
 import fs from 'fs'
 import appRoot from 'app-root-path'
 
-import { checkLogFile, log } from './utils'
+import { checkLogFile } from './utils'
 import config from './config.json'
 
 const artists = config.artists
 
-async function index() {
+export default async function index() {
+
+    checkLogFile()
+
     let words = fs.readFileSync(`${appRoot}/data/words_stem.txt`, 'utf-8')
     words = words.split('\n')
 
@@ -41,9 +44,5 @@ async function index() {
         }
 
     }
-
     process.exit(0)
 }
-
-checkLogFile()
-index()

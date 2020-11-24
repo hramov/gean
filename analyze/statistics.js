@@ -14,10 +14,11 @@
  */
 
 import { getWords } from './../FBController'
+import { log } from './../utils'
 import _ from 'underscore'
 
 export default async function statistics(artist, data) {
-    console.log('Собираю статистику')
+    log('Собираю статистику')
 
     let result = await getWords(artist.id)
 
