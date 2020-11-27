@@ -1,5 +1,8 @@
-import dotenv from 'dotenv'
-dotenv.config()
+import { load } from 'ts-dotenv'
+import { envDTO } from './dto/dotenv.dto'
+
+const env = load(envDTO)
+
 import fs from 'fs'
 import appRoot from 'app-root-path'
 import axios from 'axios'
@@ -12,18 +15,20 @@ import { checkLogFile, readCSV } from './utils'
 import statistics from './analyze/statistics'
 import config from './config.json'
 import store from './store'
+import { artistType } from './types'
 
-const artists = config.artists
-axios.defaults.headers.common = { 'Authorization': `bearer ${process.env.CLIENT_TOKEN}` }
+const artists: artistType[] = config.artists
+axios.defaults.headers.common = { 'Authorization': `bearer ${env.CLIENT_TOKEN}` }
 
-async function index() {
+async function index(): Promise<void> {
 
     checkLogFile()
     await readCSV()
 
-    let words = fs.readFileSync(`${appRoot}/data/words_stem.txt`, 'utf-8')
-    words = words.split('\n')
-    store.setWords(words)
+    const words: string = fs.readFileSync(`${appRoot}/data/words_stem.txt`, 'utf-8')
+    const wordsSplitted: string[] = words.split('\n')
+
+    store.setWords(wordsSplitted)
 
     for (let i = 0; i < artists.length; i++) {
 

@@ -3,15 +3,21 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
-    "type": "module",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node --experimental-modules --experimental-json-modules --es-module-specifier-resolution=node ."
+        "start": "ts-node index.ts",
+        "build": "tsc"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@types/axios": "^0.14.0",
+        "@types/cheerio": "^0.22.22",
+        "@types/htmlparser2": "^3.10.2",
+        "@types/natural": "^2.1.1",
+        "@types/underscore": "^1.10.24",
         "app-root-path": "^3.0.0",
+        "assert": "^1.5.0",
         "axios": "^0.21.0",
         "cheerio": "^1.0.0-rc.3",
         "csv-parser": "^2.3.3",
@@ -23,6 +29,8 @@
         "underscore": "^1.11.0"
     },
     "devDependencies": {
-        "needle": "^2.5.2"
+        "@types/app-root-path": "^1.2.4",
+        "needle": "^2.5.2",
+        "ts-dotenv": "^0.8.3"
     }
 }

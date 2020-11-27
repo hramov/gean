@@ -1,0 +1,22 @@
+{
+    "pages": 1,
+    "per_page": 2,
+    "artists": [{
+            "id": 1,
+            "name": "Noize MC",
+            "image_url": "",
+            "songs": []
+        }, {
+            "id": 2,
+            "name": "Morgenshtern",
+            "image_url": "",
+            "songs": []
+        },
+        {
+            "id": 3,
+            "name": "Oxxxymiron",
+            "image_url": "",
+            "songs": []
+        }
+    ]
+}
