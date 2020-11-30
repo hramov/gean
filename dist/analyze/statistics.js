@@ -25,7 +25,7 @@ function removeDuplicates(arr) {
                 continue;
             let valuesEqual = true;
             for (let i = 0; i < currentKeys.length; i++) {
-                const key = currentKeys[i];
+                const key = Number(currentKeys[i]);
                 if (current[key] !== comparison[key]) {
                     valuesEqual = false;
                     break;
@@ -47,12 +47,12 @@ export default async function statistics(artist, data, songs_id) {
     log('Собираю статистику');
     let result = await getWords(artist.id);
     if (result.words) {
-        result.words.push(_.flatten(data));
+        result.words = [...result.words, ..._.flatten(data)];
         result.words = _.flatten(result.words);
         result.words = removeDuplicates(result.words);
         artist.words = result.words;
         artist.unique_words = result.words.length;
-        artist.songs.push(songs_id);
+        artist.songs = [...artist.songs, ...songs_id];
         artist.songs = _.flatten(artist.songs);
     }
     else {

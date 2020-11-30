@@ -31,7 +31,7 @@ function removeDuplicates(arr: string[]) {
             let valuesEqual = true;
 
             for (let i = 0; i < currentKeys.length; i++) {
-                const key: string = currentKeys[i]
+                const key: number = Number(currentKeys[i])
                 if (current[key] !== comparison[key]) {
                     valuesEqual = false
                     break
@@ -49,7 +49,7 @@ function removeDuplicates(arr: string[]) {
  * @param {Array<Object>} data - массив объектов слов
  * @returns Обновленный объект исполнителя
  */
-export default async function statistics(artist: artistType, data: string[], songs_id: number[]) {
+export default async function statistics(artist: artistType, data: string, songs_id: number[]) {
     log('Собираю статистику')
     let result = await getWords(artist.id)
     if (result.words) {

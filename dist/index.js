@@ -1,6 +1,3 @@
-import { load } from 'ts-dotenv';
-import { envDTO } from './dto/dotenv.dto';
-const env = load(envDTO);
 import fs from 'fs';
 import appRoot from 'app-root-path';
 import axios from 'axios';
