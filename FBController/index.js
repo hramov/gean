@@ -1,13 +1,5 @@
 import axios from 'axios'
-import { fbconfig } from './../fbconfig'
-import firebase from 'firebase'
-import admin from 'firebase-admin'
 import { log } from './../utils'
-
-firebase.initializeApp(fbconfig);
-admin.initializeApp(fbconfig)
-
-const db = admin.database();
 
 export async function addArtist(data) {
     let result = []
